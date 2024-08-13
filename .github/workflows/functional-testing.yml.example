@@ -1,0 +1,11 @@
+name: Functional browser tests
+on: push
+jobs:
+  chrome:
+    runs-on: ubuntu-22.04
+    name: Run functional browser tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
