@@ -12,6 +12,7 @@
   "author": "Sergiu B",
   "license": "ISC",
   "dependencies": {
+    "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "cypress": "^13.13.2",
     "cypress-mochawesome-reporter": "^3.8.2",
     "eslint-config-prettier": "^9.1.0",

@@ -36,4 +36,6 @@ This is a point-in-time document and will no longer be updated after its review 
 1. The test cycle is archived in the test case management tool;
 2. Outstanding defects are reported and triaged;
 3. Due to the importance of the feature an email is sent out to the whole engineering team and other key stakeholders informing about the outcome;
-4. DevOps engineering will monitor performance and error logs for the next 4 hours and will report anomalies to the Release Support group chat (assumption: such a group chat exists).
+4. DevOps engineering will monitor performance and error logs for the next 4 hours and will report anomalies to the Release Support group chat (assumption: such a group chat exists);
+5. Any test cases which are still not finished need to be wrapped up;
+6. Automated checks and tests need to be stable.

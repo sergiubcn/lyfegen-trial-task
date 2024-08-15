@@ -9,3 +9,20 @@ jobs:
       - uses: cypress-io/github-action@v6
         with:
           browser: chrome
+      - uses: actions/upload-artifact@v4
+        # add the line below to store screenshots only on failures
+        # if: failure()
+        with:
+          name: cypress-screenshots
+          path: system-tests/screenshots
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: system-tests/videos
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+      - uses: actions/upload-artifact@v4 # do some magic with mocha-awesome-merge if you want to centralise multiple reports into a single one
+        with:
+          name: cypress-reports
+          path: system-tests/test-reports
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
