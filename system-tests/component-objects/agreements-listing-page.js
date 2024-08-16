@@ -8,12 +8,19 @@ const locators = {
     `[data-testid*=agreement-${agreementId}]`,
   agreementsTable: "[data-testid=agreements-table]",
   paginationButton: (direction) => `[data-testid=${direction}-button]`,
+  searchTextField: "[data-testid=search-field]",
 };
 
 const paginationNavigation = Object.freeze({
   nextSet: "next",
   previousSet: "previous",
 });
+
+const accessAgreementsDetails = (agreementId) => {
+  cy.get(locators.agreementsTable).within(() => {
+    cy.get(locators.agreementEntity(agreementId)).click();
+  });
+};
 
 const getAllAgreements = () => {
   // Isolate the logical parent component and operate on the child elements.
@@ -28,7 +35,18 @@ const navigateThroughPagedAgreements = (direction) => {
   });
 };
 
+// Assumption: search narrows the list of results upon typing.
+const searchByName = (name) => {
+  cy.get(locators.searchTextField).type(name);
+  //filter(':contains("Services")')
+  return cy.get(locators.agreementsTable).within(() => {
+    return cy.get(locators.agreementEntity()).filter(`:contains("${name}")`);
+  });
+};
+
 export const agreementsListingPage = {
+  accessAgreementsDetails,
   getAllAgreements,
   navigateThroughPagedAgreements,
+  searchByName,
 };

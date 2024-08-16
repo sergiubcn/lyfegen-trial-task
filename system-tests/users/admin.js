@@ -28,4 +28,6 @@ export default class Admin extends User {
   navigateThroughPagedAgreements = (direction) => {
     agreementsListingPage.navigateThroughPagedAgreements(direction);
   };
+
+  // Add more...
 }
